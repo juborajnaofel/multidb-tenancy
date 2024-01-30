@@ -10,10 +10,10 @@ $subdomain = $tenancy->currentSubdomain();
 
 create a tenant in index.php
 ```php
-$tenancy->createTenant('testtenancy_'.$subdomain);
+$tenancy->createTenant($dbConfig['DB_DATABASE'].'_'.$subdomain);
 ```
 
 switch to tenant database in index.php
 ```php
-$db->switchTenant('testtenancy_'.$subdomain);
+$db->switchTenant($dbConfig['DB_DATABASE'].'_'.$subdomain);
 ```
