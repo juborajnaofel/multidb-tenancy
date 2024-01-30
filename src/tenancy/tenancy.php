@@ -1,9 +1,10 @@
 <?php
 class Tenancy{
   public $conn = null;
-
-  public function __construct($db) {
+  public $domainConfig = null;
+  public function __construct($db, $domainConfig) {
     $this->conn = $db->conn;
+    $this->domainConfig = $domainConfig;
   }
 
   public function createTenant($tenantDBName){
@@ -17,13 +18,18 @@ class Tenancy{
 
   public function currentSubdomain(){
         $host = $_SERVER['HTTP_HOST'];
-        $parts = explode('.', $host);
-        if (count($parts) > 2) {
-            $subdomain = $parts[0];
-        } else {
-            $subdomain = null;
+        $centralDomain = $this->domainConfig['CENTRAL_DOMAIN'];
+
+        if (substr($host, -strlen($centralDomain)) === $centralDomain) {
+            $subdomains = rtrim(substr($host, 0, -strlen($centralDomain)), '.');
+            $subdomainArray = ($subdomains !== $host) ? explode(".", $subdomains) : [];
+            if(count($subdomainArray) > 0){
+              return implode(".", $subdomainArray);
+            }
+            return null;
         }
-        return $subdomain;
+    
+        return null;
   }
 }
 ?>
