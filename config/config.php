@@ -5,6 +5,11 @@
 		"DB_PORT"=>3306,
 		"DB_DATABASE"=>"testtenancy",
 		"DB_USERNAME"=>"root",
-		"DB_PASSWORD"=> ""
+		"DB_PASSWORD"=> "",
+	];
+
+	$domainConfig = [
+		"APP_URL" => '',
+		"CENTRAL_DOMAIN => ''
 	];
 ?>
