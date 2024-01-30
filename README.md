@@ -1,6 +1,6 @@
 # multidb-tenancy
 
-
+config database in ./config/config.php
 
 
 access current subdomain in index.php
