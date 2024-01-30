@@ -18,7 +18,7 @@ class Tenancy{
   public function currentSubdomain(){
         $host = $_SERVER['HTTP_HOST'];
         $parts = explode('.', $host);
-        if (count($parts) >= 2) {
+        if (count($parts) > 2) {
             $subdomain = $parts[0];
         } else {
             $subdomain = null;
