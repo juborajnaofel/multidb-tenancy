@@ -3,7 +3,9 @@ require_once(__DIR__.'/src/boot/boot.php');
 
 
 if($subdomain){
-    echo "Inside Tenant";
+	$tenancy->createTenant('testtenancy_'.$subdomain);
+	$db->switchTenant('testtenancy_'.$subdomain);
+	echo "Inside Tenant";
 }else {
     echo "Inside Central";
 }
