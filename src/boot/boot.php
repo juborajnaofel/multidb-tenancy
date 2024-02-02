@@ -8,7 +8,4 @@ $db->connectCentral();
 $tenancy = new Tenancy($db, $domainConfig);
 
 $subdomain = $tenancy->currentSubdomain();
-
-// $tenancy->createTenant('testtenancy_'.$subdomain);
-// $db->switchTenant('testtenancy_'.$subdomain);
 ?>
