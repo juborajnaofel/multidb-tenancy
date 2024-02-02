@@ -13,7 +13,7 @@ $dbConfig = [
 
 $domainConfig = [
 	"APP_URL" => '',
-	"CENTRAL_DOMAIN => ''
+	"CENTRAL_DOMAIN" => ''
 ];
 ```
 
